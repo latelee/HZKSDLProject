@@ -10,6 +10,9 @@
 extern "C" {
 #endif
 
+#define WINDOW_WIDTH  1024
+#define WINDOW_HEIGHT 480
+
 int sdl_init(void);
 void sdl_doit();
 void sdl_exit();

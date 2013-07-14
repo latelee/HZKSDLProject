@@ -114,6 +114,9 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
 			<File
+				RelativePath=".\font_ttf.cpp">
+			</File>
+			<File
 				RelativePath=".\font_utils.cpp">
 			</File>
 			<File
@@ -132,10 +135,16 @@
 				RelativePath=".\sdl_font48.cpp">
 			</File>
 			<File
+				RelativePath=".\sdl_font72.cpp">
+			</File>
+			<File
 				RelativePath=".\sdl_graphic.cpp">
 			</File>
 			<File
 				RelativePath=".\sdl_test.cpp">
+			</File>
+			<File
+				RelativePath=".\show_gamma.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -143,10 +152,19 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
 			<File
+				RelativePath=".\ascii_16x32.h">
+			</File>
+			<File
+				RelativePath=".\ascii_36x72.h">
+			</File>
+			<File
 				RelativePath=".\font_12x24.h">
 			</File>
 			<File
 				RelativePath=".\font_9x18.h">
+			</File>
+			<File
+				RelativePath=".\font_data.h">
 			</File>
 			<File
 				RelativePath=".\font_size.h">
@@ -170,10 +188,16 @@
 				RelativePath=".\sdl_font48.h">
 			</File>
 			<File
+				RelativePath=".\sdl_font72.h">
+			</File>
+			<File
 				RelativePath=".\sdl_graphic.h">
 			</File>
 			<File
 				RelativePath=".\sdl_test.h">
+			</File>
+			<File
+				RelativePath=".\show_gamma.h">
 			</File>
 		</Filter>
 		<Filter
