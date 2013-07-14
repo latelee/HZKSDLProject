@@ -417,3 +417,91 @@ void font_24_test(void)
     display_ascii_column_24(0, 200+120, "hello world! Goodbye!");
     display_font_column_24(0, 200+150, p4, sizeof(p4)/FULLWIDTH_SIZE);
 }
+
+#include <time.h>
+
+void show_time(void)
+{
+#define X 5
+#define Y 250
+
+#define offsetYear      0
+#define offsetMonth     5
+#define offsetDay       8
+#define offsetHour      11
+#define offsetMinute    14
+#define offsetSecond    17
+
+    char szTime[32] = {0};
+    time_t iTime;
+    struct tm *TimeInfo = NULL;
+    static bool fOnlyOnce = true;
+    static char chDateFormat = '-';
+
+    static int iYear = 0;
+    static int iMonth = 0;
+    static int iDay = 0;
+    static int iHour = 0;
+    static int iMinute = 0;
+    static int iSecond = 0;
+
+    iTime = time(NULL);
+    TimeInfo = localtime(&iTime);
+
+    if (fOnlyOnce)
+    {
+        iYear = TimeInfo->tm_year + 1900;
+        iMonth = TimeInfo->tm_mon + 1;
+        iDay = TimeInfo->tm_mday;
+        iHour = TimeInfo->tm_hour;
+        iMinute = TimeInfo->tm_min;
+        iSecond = TimeInfo->tm_sec;
+        sprintf(szTime, "%04d%c%02d%c%02d %02d:%02d:%02d ", iYear, chDateFormat, iMonth, chDateFormat, iDay, iHour, iMinute, iSecond);
+        display_ascii_column_24(X, Y, szTime);
+        fOnlyOnce = false;
+    }
+
+    if (iYear != TimeInfo->tm_year + 1900)
+    {
+        iYear = TimeInfo->tm_year + 1900;
+        sprintf(szTime, "%04d", iYear);
+        display_ascii_column_24(X, Y, szTime);
+    }
+
+    if (iMonth != TimeInfo->tm_mon + 1)
+    {
+        iMonth = TimeInfo->tm_mon + 1;
+        sprintf(szTime, "%02d", iMonth);
+        display_ascii_column_24(X + offsetMonth * CHARACTER_HALFWIDTH, Y, szTime);
+    }
+
+    if (iDay != TimeInfo->tm_mday)
+    {
+        iDay = TimeInfo->tm_mday;
+        sprintf(szTime, "%02d", iDay);
+        display_ascii_column_24(X + offsetDay * CHARACTER_HALFWIDTH, Y, szTime);
+    }
+
+    if (iHour != TimeInfo->tm_hour)
+    {
+        iHour = TimeInfo->tm_hour;
+        sprintf(szTime, "%02d", iHour);
+        display_ascii_column_24(X + offsetHour * CHARACTER_HALFWIDTH, Y, szTime);
+    }
+
+    if (iMinute != TimeInfo->tm_min)
+    {
+        iMinute = TimeInfo->tm_min;
+        //printf("minute: %02d\n", iMinute);
+        sprintf(szTime, "%02d", iMinute);
+        display_ascii_column_24(X + offsetMinute * CHARACTER_HALFWIDTH, Y, szTime);
+    }
+
+    if (iSecond != TimeInfo->tm_sec)
+    {
+        iSecond = TimeInfo->tm_sec;
+        //printf("second: %02d\n", iSecond);
+        sprintf(szTime, "%02d", iSecond);
+        display_ascii_column_24(X + offsetSecond * CHARACTER_HALFWIDTH, Y, szTime);
+    }
+}
