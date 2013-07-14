@@ -122,6 +122,9 @@
 			<File
 				RelativePath=".\sdl_graphic.cpp">
 			</File>
+			<File
+				RelativePath=".\sdl_test.cpp">
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
@@ -135,6 +138,9 @@
 			</File>
 			<File
 				RelativePath=".\sdl_graphic.h">
+			</File>
+			<File
+				RelativePath=".\sdl_test.h">
 			</File>
 		</Filter>
 		<Filter

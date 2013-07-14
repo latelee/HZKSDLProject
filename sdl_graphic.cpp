@@ -3,7 +3,7 @@
 #pragma comment(lib, "lib/SDL.lib")
 #pragma comment(lib, "lib/SDLmain.lib")
 
-/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////using color index
 
 #define XORMODE	0x80000000
 
@@ -15,7 +15,7 @@ union multiptr {
     unsigned long *p32;
 };
 
-void setColor(SDL_Surface* surface, Uint32 colidx, Uint32 value)
+static void setColor(SDL_Surface* surface, Uint32 colidx, Uint32 value)
 {
     Uint8 red, green, blue;
     Uint32 pixel;
@@ -76,7 +76,9 @@ static void SDL_PixelIdx(SDL_Surface* surface, int x, int y, Uint32 colidx)
         SDL_UnlockSurface(surface);
 }
 
-void SDL_PixelNolock(SDL_Surface* surface, int x, int y, Uint32 color)
+////////////////////////////////end of color index
+
+static void SDL_PixelNolock(SDL_Surface* surface, int x, int y, Uint32 color)
 {
     int bpp = surface->format->BytesPerPixel;
     Uint8* p = (Uint8 *)surface->pixels + y * surface->pitch + x * bpp;
@@ -127,7 +129,6 @@ static void SDL_PixelColor(SDL_Surface* surface, int x, int y, Uint32 color)
     }
 }
 
-
 void SDL_Pixel(SDL_Surface* surface, int x, int y, Uint32 color)
 {
 #ifdef USING_COLORIDX
@@ -140,7 +141,7 @@ void SDL_Pixel(SDL_Surface* surface, int x, int y, Uint32 color)
 /////////////////////////////////////////////////////////////////
 const int WINDOW_WIDTH = 480;
 const int WINDOW_HEIGHT = 320;
-const char* WINDOW_TITLE = "SDL Hello World";
+const char* WINDOW_TITLE = "SDL Hello World -- by Late Lee";
 
 SDL_Surface* g_screen = NULL;
 
@@ -171,7 +172,7 @@ int InitGraphic(SDL_Surface** screen)
 
     // Set 640x480 video mode
     if ( (*screen=SDL_SetVideoMode(WINDOW_WIDTH,WINDOW_HEIGHT,video_bpp,videoflags)) == NULL ) {
-        fprintf(stderr, "Couldn't set %ix%i video mode: %s\n",640,480,SDL_GetError());
+        fprintf(stderr, "Couldn't set %ix%i video mode: %s\n",WINDOW_WIDTH,WINDOW_HEIGHT,SDL_GetError());
         return 2;
     }
 
@@ -229,6 +230,11 @@ void pixel(int x, int y, Uint32 color)
     SDL_Pixel(g_screen, x, y, color);
 }
 
+void myrefresh()
+{
+    SDL_Flip(g_screen);
+}
+
 void init_color(Uint32 palette[], int len)
 {
     int i = 0;
@@ -236,11 +242,7 @@ void init_color(Uint32 palette[], int len)
         setColor(g_screen, i, palette[i]);
 }
 
-void myrefresh()
-{
-    SDL_Flip(g_screen);
-}
-
+/*-----------------------------setup the color index-----------------------------------*/
 /* 0.black 1.xx 2.white 3.xx 4.xx 5.xx 6.purple 7.red 8.green 9.blue 10. yellow 11. gold */
 static unsigned int palette [] =
 {

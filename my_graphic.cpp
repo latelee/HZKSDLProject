@@ -123,6 +123,7 @@ void fillcircle(int x, int y, int radius, uint32 color)
 
 // 16 or 24
 #define HZK24
+// #define HZK16
 
 #ifdef HZK24 /* 24 */
 #include "include/ascii24.h"
