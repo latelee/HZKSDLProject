@@ -139,8 +139,8 @@ void SDL_Pixel(SDL_Surface* surface, int x, int y, Uint32 color)
 }
 
 /////////////////////////////////////////////////////////////////
-const int WINDOW_WIDTH = 480;
-const int WINDOW_HEIGHT = 320;
+const int WINDOW_WIDTH = 640;
+const int WINDOW_HEIGHT = 480;
 const char* WINDOW_TITLE = "SDL Hello World -- by Late Lee";
 
 SDL_Surface* g_screen = NULL;

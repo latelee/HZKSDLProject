@@ -114,10 +114,22 @@
 			Filter="cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}">
 			<File
+				RelativePath=".\font_utils.cpp">
+			</File>
+			<File
 				RelativePath=".\main.cpp">
 			</File>
 			<File
 				RelativePath=".\my_graphic.cpp">
+			</File>
+			<File
+				RelativePath=".\sdl_font18.cpp">
+			</File>
+			<File
+				RelativePath=".\sdl_font24.cpp">
+			</File>
+			<File
+				RelativePath=".\sdl_font48.cpp">
 			</File>
 			<File
 				RelativePath=".\sdl_graphic.cpp">
@@ -131,10 +143,31 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}">
 			<File
+				RelativePath=".\font_12x24.h">
+			</File>
+			<File
+				RelativePath=".\font_9x18.h">
+			</File>
+			<File
+				RelativePath=".\font_size.h">
+			</File>
+			<File
+				RelativePath=".\font_utils.h">
+			</File>
+			<File
 				RelativePath=".\my_graphic.h">
 			</File>
 			<File
 				RelativePath=".\my_types.h">
+			</File>
+			<File
+				RelativePath=".\sdl_font18.h">
+			</File>
+			<File
+				RelativePath=".\sdl_font24.h">
+			</File>
+			<File
+				RelativePath=".\sdl_font48.h">
 			</File>
 			<File
 				RelativePath=".\sdl_graphic.h">

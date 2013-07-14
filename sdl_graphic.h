@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "my_types.h"
 #include "include/SDL/SDL.h"
+#include "my_graphic.h"
 
 #ifdef __cplusplus
 extern "C" {
