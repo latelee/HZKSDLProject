@@ -95,8 +95,6 @@ static void my_ascii_to_lattice(unsigned char* fontdata, int char_width, char* s
 		// 每个字符宽是半角
 		for ( j = 0; j < half_width; ++j )
 		{
-			int iDstLine = 0;
-
 			// 每个字符高有多少个字节
 			for (k = 0; k < char_height/8; k++)
 			{
