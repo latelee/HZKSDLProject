@@ -4,5 +4,6 @@
 int main(int argc, char* argv[])
 {
     sdl_test();
+    //draw_sin();
     return 0;
 }

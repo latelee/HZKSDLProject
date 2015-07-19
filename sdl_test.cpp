@@ -8,7 +8,6 @@
 #include "font_utils.h"
 #include "show_gamma.h"
 
-
 #pragma comment(lib, "lib/SDL.lib")
 #pragma comment(lib, "lib/SDLmain.lib")
 
@@ -69,19 +68,90 @@ void show_rainbow()
     }
 }
 
+#include <math.h>
+// ÕýÏÒ²¨
+void draw_sin_con()
+{
+    double y = 0;
+    int x = 0;
+    int m = 0;
+
+    for(y=1;y>=0;y-=0.1)
+    {
+        m=asin(y)*10;
+
+        for(x=1;x<m;x++)
+        {
+            printf(" ");
+        }
+        printf("*");
+
+        for(;x<31-m;x++)
+        {
+            printf(" ");
+        }
+        printf("*\n");
+    }
+    for(y=-0.1;y>=-1;y-=0.1)
+    {
+        m=abs(asin(y)*10)+31;
+        for(x=1;x<=m;x++)
+        {
+            printf(" ");
+        }
+        printf("*");
+        for(;x<93-m;x++)
+        {
+            printf(" ");
+        }
+        printf("*\n");
+    }
+}
+
+void draw_sin()
+{
+#define PI 3.14159265
+
+    double param = 0;
+    int org_y = 240;
+    int x = 0;
+    int y = 0;
+    int i = 0;
+
+    sdl_init();
+
+    line(0, org_y, 400, org_y, 0xffffff);
+
+    for (i = 1; i < 10; i++)
+    {
+        for(x = 0; x < 360; x++)
+        {
+            y = (int)(sin(x*PI/180 * i) * 100);
+            printf("%d %d\n", x, y);
+            pixel(x, org_y - y, 0xff0000);
+            myrefresh();
+        }
+        Sleep(1000);
+    }
+
+    sdl_doit();
+    sdl_exit();
+
+}
+
 int sdl_test()
 {
     sdl_init();
 
-    //sdl_old();
+    sdl_old();
 
-    //font_18_test();
-    //font_24_test();
-    //font_48_test();
-	//font_72_test();
+    font_18_test();
+    font_24_test();
+    font_48_test();
+	font_72_test();
     //foo_test();
     //bar_test();
-    ShowGamma();
+    //ShowGamma();
     //ttf_test();
     //show_rainbow();
 

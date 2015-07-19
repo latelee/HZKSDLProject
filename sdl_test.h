@@ -3,4 +3,6 @@
 
 int sdl_test();
 
+void draw_sin();
+
 #endif /* _SDL_TEST_H */
