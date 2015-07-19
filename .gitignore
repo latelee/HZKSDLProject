@@ -1,19 +1,28 @@
-#
-# NOTE! Don't add files that are generated in specific
-# subdirectories here. Add them in the ".gitignore" file
-# in that subdirectory instead.
-#
-# Normal rules
-#
-
-*.rej
-*.orig
-*.a
+# Compiled Object files
+*.slo
+*.lo
 *.o
-*~
-*.swp
-*.patch
+*.obj
 
-Debug/
+# Precompiled Headers
+*.gch
+*.pch
 
-*.suo
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
